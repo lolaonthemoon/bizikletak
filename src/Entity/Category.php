@@ -22,7 +22,7 @@ class Category
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $description;
+    private $name;
 
     /**
      * @ORM\OneToMany(targetEntity=Bike::class, mappedBy="category")
@@ -39,14 +39,14 @@ class Category
         return $this->id;
     }
 
-    public function getDescription(): ?string
+    public function getName(): ?string
     {
-        return $this->description;
+        return $this->name;
     }
 
-    public function setDescription(string $description): self
+    public function setName(string $name): self
     {
-        $this->description = $description;
+        $this->name = $name;
 
         return $this;
     }

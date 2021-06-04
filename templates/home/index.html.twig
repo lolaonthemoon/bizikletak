@@ -4,18 +4,13 @@
 
 {% block body %}
 <head>
-
    <meta charset="UTF-8">
-
    <title>Bizikletak</title>
-
 </head>
 
-<body>
-
    <h1>Hello bizikletak !</h1>
+   {% for bike in allBikes %}
+   <h2>Vélo : {{bike.getGender.name}} - {{bike.getCategory.name}} - {{bike.name}} </h2>
+   {% endfor %}
 
-</body>
-
-</html>
 {% endblock %}
