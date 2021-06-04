@@ -33,9 +33,14 @@ class Bike
     private $public;
 
     /**
-     * @ORM\Column(type="string", length=25)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $energy;
+    private $details;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $size;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -56,6 +61,31 @@ class Bike
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="bikes")
      */
     private $category;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $creationDate;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $price;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isSold;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $soldDate;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Propulsion::class, inversedBy="bikes")
+     */
+    private $propulsion;
 
     public function getId(): ?int
     {
@@ -94,18 +124,6 @@ class Bike
     public function setPublic(?string $public): self
     {
         $this->public = $public;
-
-        return $this;
-    }
-
-    public function getEnergy(): ?string
-    {
-        return $this->energy;
-    }
-
-    public function setEnergy(string $energy): self
-    {
-        $this->energy = $energy;
 
         return $this;
     }
@@ -154,6 +172,106 @@ class Bike
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getCreationDate(): ?\DateTimeInterface
+    {
+        return $this->creationDate;
+    }
+
+    public function setCreationDate(?\DateTimeInterface $creationDate): self
+    {
+        $this->creationDate = $creationDate;
+
+        return $this;
+    }
+
+    public function getPrice(): ?int
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?int $price): self
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    public function getIsSold(): ?bool
+    {
+        return $this->isSold;
+    }
+
+    public function setIsSold(bool $isSold): self
+    {
+        $this->isSold = $isSold;
+
+        return $this;
+    }
+
+    public function getSoldDate(): ?\DateTimeInterface
+    {
+        return $this->soldDate;
+    }
+
+    public function setSoldDate(?\DateTimeInterface $soldDate): self
+    {
+        $this->soldDate = $soldDate;
+
+        return $this;
+    }
+
+    public function getPropulsion(): ?Propulsion
+    {
+        return $this->propulsion;
+    }
+
+    public function setPropulsion(?Propulsion $propulsion): self
+    {
+        $this->propulsion = $propulsion;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of details
+     */
+    public function getDetails(): ?string
+    {
+        return $this->details;
+    }
+
+    /**
+     * Set the value of details
+     *
+     * @return  self
+     */
+    public function setDetails(?string $details)
+    {
+        $this->details = $details;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of size
+     */
+    public function getSize(): ?string 
+    {
+        return $this->size;
+    }
+
+    /**
+     * Set the value of size
+     *
+     * @return  self
+     */
+    public function setSize(?string $size)
+    {
+        $this->size = $size;
 
         return $this;
     }
