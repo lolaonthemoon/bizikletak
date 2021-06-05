@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\CategoryRepository;
+use App\Repository\GenderRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @ORM\Entity(repositoryClass=GenderRepository::class)
  */
-class Category
+class Gender
 {
     /**
      * @ORM\Id
@@ -25,7 +25,7 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Bike::class, mappedBy="category")
+     * @ORM\OneToMany(targetEntity=Bike::class, mappedBy="gender")
      */
     private $bikes;
 
@@ -63,7 +63,7 @@ class Category
     {
         if (!$this->bikes->contains($bike)) {
             $this->bikes[] = $bike;
-            $bike->setCategory($this);
+            $bike->setGender($this);
         }
 
         return $this;
@@ -73,8 +73,8 @@ class Category
     {
         if ($this->bikes->removeElement($bike)) {
             // set the owning side to null (unless already changed)
-            if ($bike->getCategory() === $this) {
-                $bike->setCategory(null);
+            if ($bike->getGender() === $this) {
+                $bike->setGender(null);
             }
         }
 

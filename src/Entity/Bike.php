@@ -30,11 +30,7 @@ class Bike
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      */
-    private $public;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
+  
     private $details;
 
     /**
@@ -87,6 +83,11 @@ class Bike
      */
     private $propulsion;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Gender::class, inversedBy="bikes")
+     */
+    private $gender;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -112,18 +113,6 @@ class Bike
     public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
-
-        return $this;
-    }
-
-    public function getPublic(): ?string
-    {
-        return $this->public;
-    }
-
-    public function setPublic(?string $public): self
-    {
-        $this->public = $public;
 
         return $this;
     }
@@ -272,6 +261,18 @@ class Bike
     public function setSize(?string $size)
     {
         $this->size = $size;
+
+        return $this;
+    }
+
+    public function getGender(): ?Gender
+    {
+        return $this->gender;
+    }
+
+    public function setGender(?Gender $gender): self
+    {
+        $this->gender = $gender;
 
         return $this;
     }
