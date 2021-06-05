@@ -3,14 +3,24 @@
 {# {% block title %}Bizikletak-Home{% endblock %} #}
 
 {% block body %}
-<head>
-   <meta charset="UTF-8">
-   <title>Bizikletak</title>
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<title>Bizikletak</title>
+	</head>
 
-   <h1>Hello bizikletak !</h1>
-   {% for bike in allBikes %}
-   <h2>Vélo : {{bike.getGender.name}} - {{bike.getCategory.name}} - {{bike.name}} </h2>
-   {% endfor %}
+	<h1>Hello bizikletak !
+	{# assets/images/loloavelo.png was copied to public/build/loloavelo.png #}
+	<img src="{{ asset('build/images/loloavelo.png') }}" alt="lolo ta bizikleta gorria"/>
+	</h1>
+    
+	{% for bike in allBikes %}
+		<h2>Vélo :
+			{{bike.getGender.name}}
+			-
+			{{bike.getCategory.name}}
+			-
+			{{bike.name}}
+		</h2>
+	{% endfor %}
 
 {% endblock %}

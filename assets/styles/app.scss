@@ -1,0 +1,10 @@
+// @import 'variables.scss';
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    background-color: hsl(180, 9%, 98%);
+}
+p {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
