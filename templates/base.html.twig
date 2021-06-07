@@ -6,9 +6,12 @@
 		<script src="/build/app.js"></script>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Ongi etorri !
+			{% block title %}Lolo à Vélo
 			{% endblock %}
 		</title>
+		{# favicon in the onglet #}
+		<link rel="icon" type="image/x-icon" alt="logo loloavelo" href="{{ asset('build/images/favicon.ico') }}"/>
+		{% include "_topnav.html.twig" %}
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
