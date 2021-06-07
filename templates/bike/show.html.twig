@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bike{% endblock %}
+
+{% block body %}
+    <h1>Bike</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ bike.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ bike.name }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ bike.picture }}</td>
+            </tr>
+            <tr>
+                <th>Details</th>
+                <td>{{ bike.details }}</td>
+            </tr>
+            <tr>
+                <th>Size</th>
+                <td>{{ bike.size }}</td>
+            </tr>
+            <tr>
+                <th>Recommandation</th>
+                <td>{{ bike.recommandation }}</td>
+            </tr>
+            <tr>
+                <th>MinSize</th>
+                <td>{{ bike.minSize }}</td>
+            </tr>
+            <tr>
+                <th>Maxsize</th>
+                <td>{{ bike.maxsize }}</td>
+            </tr>
+            <tr>
+                <th>CreationDate</th>
+                <td>{{ bike.creationDate ? bike.creationDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ bike.price }}</td>
+            </tr>
+            <tr>
+                <th>IsSold</th>
+                <td>{{ bike.isSold ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>SoldDate</th>
+                <td>{{ bike.soldDate ? bike.soldDate|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('bike_index') }}">back to list</a>
+
+    <a href="{{ path('bike_edit', {'id': bike.id}) }}">edit</a>
+
+    {{ include('bike/_delete_form.html.twig') }}
+{% endblock %}

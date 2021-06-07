@@ -8,16 +8,13 @@
 		<title>Bizikletak</title>
 	</head>
 
-	<h1>Hello bizikletak !	</h1>
-    
+	<h1>Hello bizikletak !
+	</h1>
 	{% for bike in allBikes %}
-		<h2>Vélo :
-			{{bike.getGender.name}}
-			-
-			{{bike.getCategory.name}}
-			-
+		<h4>-
+			<a href="{{ path('gender_show', {'id': bike.getGender.id}) }}">{{bike.getGender.name}}</a>
+			<a href="{{ path('category_show', {'id': bike.getCategory.id}) }}">{{bike.getCategory.name}}</a>
 			{{bike.name}}
-		</h2>
+		</h4>
 	{% endfor %}
-
 {% endblock %}

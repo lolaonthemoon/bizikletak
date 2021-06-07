@@ -11,15 +11,22 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
  
         <li class="nav-item nav-text">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-
-     
+          <a class="nav-link active" aria-current="page" href="{{path('home') }}">Home</a>
+        </li>     
         <li class="nav-item">
-          <a class="nav-link" href="#">Vélos</a>
+          <a class="nav-link" href="{{path('bike_index') }}">Vélos</a>
+        </li>
+            <li class="nav-item">
+          <a class="nav-link" href="{{path('category_index') }}">Catégories</a>
+        </li>
+            <li class="nav-item">
+          <a class="nav-link" href="{{path('gender_index') }}">Publics</a>
+        </li>
+            <li class="nav-item">
+          <a class="nav-link" href="{{path('propulsion_index') }}">Propulsion</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="#">Nous contacter</a>
         </li>
 
            </li>
