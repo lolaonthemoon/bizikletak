@@ -1,0 +1,111 @@
+## Installation de linux -> faire 1 bootable key
+
+## Install Terminator (terminal amélioré ligne de commande)
+	sudo apt install terminator
+
+## Install PHP
+	sudo apt install php
+## Lancer php server 
+	php -S localhost:8000
+Creer hello.php et tester
+Configurer  /etc/php/7.X/cli/php.ini avec droits sudo,
+lignes en fin de fichier, en haut ce sont les recommandations
+		display_errors = On
+		error_reporting = E_ALL
+## tester en incluant commande ds .php après avoir relancé le serveur
+	echo phpinfo();
+
+## Install MySQL
+	 sudo apt update
+	 sudo apt install mysql-server
+	 sudo mysql_secure_installation
+ Se connecter à Mysql en mode Root
+ 	sudo mysql -u root
+Créer un Utilisateur tout puissant 
+	CREATE USER 'USERNAME_OF_YOUR_CHOICE'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'PASSWORD_OF_YOUR_CHOICE_TO_NEVER_FORGET';
+	GRANT ALL PRIVILEGES ON * . * TO 'USERNAME_OF_YOUR_CHOICE'@'localhost';
+	FLUSH PRIVILEGES;
+Se connecter avec Utilisateur tout puissant
+	mysql -u USERNAME_YOU_CHOOSE_JUST_BEFORE -p
+	
+## installer PHPMyAdmin
+	choisir  Server Apache puis options par défaut
+	choisir mot de passe
+ 
+ 
+	sudo apt install phpmyadmin
+	
+## Installer Visual Studio code (download from the web Site)
+	installer les dépendances au fur et à mesure
+	
+## Installer Git
+	sudo apt update
+	sudo apt install git
+
+## Installer Symfony globalement (voir doc sur le web)
+## Installer composer globalement (voir doc sur le web)
+## installer dépendaces xml
+	sudo apt install php-xml
+
+## initialiser un projet (full ou skeleton)
+symfony new project-name --full 
+	ou bien plus léger avec
+symfony new wild-series  
+
+## se placer dans le projet project-name et 
+	lancer un serveur php
+	php -S localhost:8000 -t public
+	#### la page d'accueil de Symfony s'affiche ds le navigateur
+	
+	copier le fichier .env dans .env.local (pas versionné ds git)
+	modifier la DB utilisée (par défaut c'est posgre) 
+	commenter la ligne posgre
+	decommenter MySql et renseigner les infos de connexion (user, Db et pwd)
+
+## Creer DB sous Symfony
+	symfony console doctrine:database:create
+## Creer Repo distant dans GiHub (site web de gitHub)
+
+## ajouter une clé SSH à github pour qu'il reconnaisse l ordi source 
+## 1 fois par ordi / repo gitHub
+## tip : installer xclip pour copier la clé ds presse papier
+## la clé doit être généree sur la machine source
+
+## Versionner le projet local sous git 
+	git init
+	git remote add origin https://github.com/userName/repoName.git
+
+## creer les entites avec symfony doctrine
+## faire les migrations pour creer/maj la base de données mysql liée
+	php bin/console make:entity
+	php bin/console make:migration
+	php bin/console doctrine:migrations:migrate
+
+## installer twig
+	composer require twig
+## install assets qui est une "recipe"
+	composer require symfony/asset
+## installer webpack-encore
+	composer require symfony/webpack-encore-bundle
+	et suivre les instructions affichées (yarn, twig helper...)
+
+## s assurer que nodejs est installé sur la machine (ou l'installer !)
+## s assurer que yarn est installé sur la machine (ou l'installer !)
+
+## à la racine du projet lancer
+	yarn install
+## pour compiler les fichiers de assets en utilisant yarn (ils vont alors ds public)
+	yarn encore dev
+	yarn encore dev --watch (permet compilation à la volée)
+	yarn encore production (en environnement de prod)
+## gestion des images = doc de symfony sur
+	Copying & Referencing Images
+## installer si besoin Bootstrap :
+	voir doc symfony = Using Bootstrap CSS & JS
+
+
+	
+
+
+
+
