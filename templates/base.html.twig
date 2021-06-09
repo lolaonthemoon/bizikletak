@@ -19,6 +19,21 @@
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
+		{# Displays flash messages in a popup #}
+		{% for message in app.flashes('success') %}
+			<div class="container-fluid pt-3">
+				<div class="alert alert-success">{{message}}</div>
+			</div>
+		{% endfor %}
+		{% for message in app.flashes('erreur') %}
+			<div class="container-fluid pt-3">
+				<div class="alert alert-danger">{{message}}</div>
+			</div>
+		{% endfor %}
+		{% for message in app.flashes('verify_email_error') %}
+			<div class="alert alert-danger" role="alert">{{ message }}</div>
+		{% endfor %}
+
 	</head>
 	<body>
 		{% block body %}{% endblock %}

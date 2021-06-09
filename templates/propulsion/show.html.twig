@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Propulsion{% endblock %}
+
+{% block body %}
+    <h1>Propulsion</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ propulsion.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ propulsion.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('propulsion_index') }}">back to list</a>
+
+    <a href="{{ path('propulsion_edit', {'id': propulsion.id}) }}">edit</a>
+
+    {{ include('propulsion/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Propulsion{% endblock %}
+
+{% block body %}
+    <h1>Edit Propulsion</h1>
+
+    {{ include('propulsion/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('propulsion_index') }}">back to list</a>
+
+    {{ include('propulsion/_delete_form.html.twig') }}
+{% endblock %}

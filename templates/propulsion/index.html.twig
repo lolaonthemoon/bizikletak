@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Propulsion index{% endblock %}
+
+{% block body %}
+    <h1>Propulsion index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for propulsion in propulsions %}
+            <tr>
+                <td>{{ propulsion.id }}</td>
+                <td>{{ propulsion.name }}</td>
+                <td>
+                    <a href="{{ path('propulsion_show', {'id': propulsion.id}) }}">show</a>
+                    <a href="{{ path('propulsion_edit', {'id': propulsion.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('propulsion_new') }}">Create new</a>
+{% endblock %}
