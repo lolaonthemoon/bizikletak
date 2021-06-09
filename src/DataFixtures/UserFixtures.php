@@ -31,16 +31,28 @@ class UserFixtures extends Fixture
          $manager->persist($admin);
 
            // Création d’un utilisateur de type "user"
-           $user = new User();
-           $user->setFirstname('SuperWild');
-           $user->setLastname('User');
-           $user->setEmail('user@bizi.com');
-           $user->setRoles(['ROLE_USER']);
-           $user->setPassword($this->passwordEncoder->encodePassword(
-               $user,
-               'userpassword'
+           $user1 = new User();
+           $user1->setFirstname('Marcel');
+           $user1->setLastname('User');
+           $user1->setEmail('user1@bizi.com');
+           $user1->setRoles(['ROLE_USER']);
+           $user1->setPassword($this->passwordEncoder->encodePassword(
+               $user1,
+               'user1password'
            ));
-           $manager->persist($user);
+           $manager->persist($user1);
+
+             // Création d’un utilisateur de type "user"
+             $user2 = new User();
+             $user2->setFirstname('Marcel');
+             $user2->setLastname('User');
+             $user2->setEmail('user2@bizi.com');
+             $user2->setRoles(['ROLE_USER']);
+             $user2->setPassword($this->passwordEncoder->encodePassword(
+                 $user2,
+                 'user2password'
+             ));
+             $manager->persist($user2);
  
          // Sauvegarde des nouveaux utilisateurs :
          $manager->flush();
