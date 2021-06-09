@@ -1,43 +1,48 @@
-
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFC0CB">
 
-  <div class="container-fluid">
-	<a class="navbar-brand" href="{{path('home') }}"><img src="{{ asset('build/images/loloavelo.png') }}" width="40px" height="28px" class="d-inline-block align-top" alt="">
-		Lolo à Vélo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
- 
-        <li class="nav-item nav-text">
-          <a class="nav-link active" aria-current="page" href="{{path('home') }}">Home</a>
-        </li>     
-        <li class="nav-item">
-          <a class="nav-link" href="{{path('bike_index') }}">Vélos</a>
-        </li>
-            <li class="nav-item">
-          <a class="nav-link" href="{{path('category_index') }}">Catégories</a>
-        </li>
-            <li class="nav-item">
-          <a class="nav-link" href="{{path('gender_index') }}">Publics</a>
-        </li>
-            <li class="nav-item">
-          <a class="nav-link" href="{{path('propulsion_index') }}">Propulsion</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{path('contact_sendMessage') }}">Nous contacter</a>
-        </li>
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{{path('home') }}"><img src="{{ asset('build/images/loloavelo.png') }}" width="40px" height="28px" class="d-inline-block align-top" alt="">
+			Lolo à Vélo</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-           </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sign in</a>
-        </li>
-      </ul>
-      <span class="navbar-text">
-        Navbar text with an inline element
-      </span>
-    </div>
-  </div>
-</nav>
+				<li class="nav-item nav-text">
+					<a class="nav-link active" aria-current="page" href="{{path('home') }}">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('bike_index') }}">Vélos</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('category_index') }}">Catégories</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('gender_index') }}">Publics</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('propulsion_index') }}">Propulsion</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('contact_sendMessage') }}">Nous contacter</a>
+				</li>
+			</li>
 
+			{% if app.user %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
+				</li>
+				<span class="navbar-text">
+					Hello
+					{{ app.user.firstname}}
+					{{ app.user.lastname }}
+				</span>
+			{% else %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{ path('app_login') }}">Se connecter</a>
+				</li>
+			{% endif %}
+		</ul>
+	</div>
+</div></nav>
