@@ -1,2 +1,9 @@
 // @import 'variables.scss';
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+.navbar-nav .welcome {
+  color: rgba(14, 4, 102, 0.842);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
